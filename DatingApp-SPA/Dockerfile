@@ -1,12 +1,8 @@
-FROM httpd:2.4
-#copy angular dist folder to container 
-COPY dist/ /usr/local/apache2/htdocs/
-
-#copy htaccess and httpd.conf to container
-COPY .htaccess /usr/local/apache2/htdocs/
-COPY httpd.conf /usr/local/apache2/conf/httpd.conf
-#change permissions
-RUN chmod -R 755 /usr/local/apache2/htdocs/
-
-#expose port
+FROM node:10.13-alpine
+ENV NODE_ENV production
+WORKDIR /usr/src/app
+COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
+RUN npm install --production --silent && mv node_modules ../
+COPY . .
 EXPOSE 4200
+CMD npm start
