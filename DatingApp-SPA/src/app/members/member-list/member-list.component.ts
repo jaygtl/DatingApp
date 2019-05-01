@@ -11,12 +11,14 @@ import { Pagination, PaginatedResult } from 'src/app/_models/pagination';
   styleUrls: ['./member-list.component.css']
 })
 export class MemberListComponent implements OnInit {
-users: User[];
-pagination: Pagination;
-user: User = JSON.parse(localStorage.getItem('user'));
-genderList: [{value: 'male', display: 'Males'}, {value: 'female', display: 'Females'}];
-userParams: any = {};
-  constructor(private userService:UserService, private alertify: AlertifyService, private route: ActivatedRoute) { }
+
+  users: User[];
+  pagination: Pagination;
+  user: User = JSON.parse(localStorage.getItem('user'));
+  genderList = [{value: 'male', display: 'Males'}, {value: 'female', display: 'Females'}];
+  userParams: any = {};
+
+  constructor(private userService: UserService, private alertify: AlertifyService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.data.subscribe(data => {
