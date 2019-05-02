@@ -15,13 +15,14 @@ export class ListsComponent implements OnInit {
   users: User[];
   pagination: Pagination;
   likesParam: string;
+  
   constructor(private authService: AuthService, private userService: UserService,
     private route: ActivatedRoute, private alertify: AlertifyService) { }
 
   ngOnInit() {
     this.route.data.subscribe(data => {
-      this.users = data['users'].result;
-      this.pagination = data['users'].pagination;
+      this.users = data['user'].result;
+      this.pagination = data['user'].pagination;
     });
     this.likesParam = 'Likers';
   }
