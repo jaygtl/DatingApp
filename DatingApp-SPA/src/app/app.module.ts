@@ -31,6 +31,7 @@ import { FileUploadModule } from 'ng2-file-upload';
 import {TimeAgoPipe} from 'time-ago-pipe';
 import { ListResolver } from './_resolvers/list.resolver';
 import { MessagesResolver } from './_resolvers/messages.resolver.';
+import { MemberMessagesComponent } from './members/member-messages/member-messages.component';
 
 
 
@@ -51,6 +52,7 @@ export function tokenGetter(){
       MemberDetailComponent,
       MemberEditComponent,
       PhotoEditorComponent,
+      MemberMessagesComponent,
       TimeAgoPipe
    ],
    imports: [
